@@ -1,0 +1,72 @@
+{
+  "expo": {
+    "name": "OnBeat",
+    "slug": "onbeat",
+    "version": "2.0.2",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "onbeat",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": false,
+      "appleTeamId": "HV6D8GA9V7",
+      "bundleIdentifier": "com.hakim.onbeat",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio",
+          "fetch",
+          "location"
+        ]
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "OnBeat uses your location while you run to draw your route on the map and measure distance and pace.",
+          "locationAlwaysAndWhenInUsePermission": "OnBeat keeps recording your route, distance and pace while the app is in your pocket and the screen is off.",
+          "isIosBackgroundLocationEnabled": true
+        }
+      ],
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "OnBeat reads your step count to show your cadence in steps per minute."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0B0A09",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 120
+        }
+      ],
+      [
+        "@wwdrew/expo-spotify-sdk",
+        {
+          "clientID": "7821a021f7e9443dae2c1d2b6169b15f",
+          "scheme": "onbeat",
+          "host": "spotify-auth"
+        }
+      ],
+      "expo-web-browser",
+      "expo-secure-store",
+      "./plugins/with-no-push-entitlement",
+      [
+        "expo-widgets",
+        {
+          "bundleIdentifier": "com.hakim.onbeat.widgets",
+          "groupIdentifier": "group.com.onbeat.app",
+          "frequentUpdates": true,
+          "enablePushNotifications": false
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
